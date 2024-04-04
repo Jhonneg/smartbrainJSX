@@ -1,8 +1,7 @@
-
 function Navigation() {
   return (
     <nav className="flex justify-end">
-      <p>Sing Out </p>
+      <p className="p-3 underline cursor-pointer">Sing Out </p>
     </nav>
   );
 }
