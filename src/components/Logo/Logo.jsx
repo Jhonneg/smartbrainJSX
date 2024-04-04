@@ -1,4 +1,5 @@
 import { Tilt } from "react-tilt";
+import "./Logo.css";
 
 const defaultOptions = {
   reverse: false, // reverse the tilt direction
@@ -14,7 +15,11 @@ const defaultOptions = {
 
 function Logo() {
   return (
-    <Tilt options={defaultOptions} style={{ height: 250, width: 250 }}>
+    <Tilt
+      className="Tilt"
+      options={defaultOptions}
+      style={{ height: 250, width: 250 }}
+    >
       <div>👽</div>
     </Tilt>
   );

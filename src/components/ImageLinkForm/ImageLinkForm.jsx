@@ -1,9 +1,5 @@
-
-
 function ImageLinkForm() {
-  return (
-    <div>ImageLinkForm</div>
-  )
+  return <div>ImageLinkForm</div>;
 }
 
-export default ImageLinkForm
+export default ImageLinkForm;
