@@ -1,9 +1,0 @@
-.loginnav {
-  display: flex;
-  justify-content: end;
-}
-.signout {
-  padding: 1rem;
-  text-decoration: underline;
-  cursor: pointer;
-}

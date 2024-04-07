@@ -1,8 +1,8 @@
-import "./Navigation.css";
+
 function Navigation() {
   return (
-    <nav className="loginnav">
-      <p className="signout">Sign Out </p>
+    <nav className="flex justify-end">
+      <p className="p-4 underline cursor-pointer">Sign Out </p>
     </nav>
   );
 }

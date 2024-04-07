@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+  background: linear-gradient(220.55deg, #FFBB89 0%, #7B6AE0 100%);
   font-family: "Roboto", sans-serif;
 }
