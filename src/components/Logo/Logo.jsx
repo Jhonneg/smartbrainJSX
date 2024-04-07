@@ -1,5 +1,4 @@
 import { Tilt } from "react-tilt";
-import "./Logo.css";
 import brain from "./icons8-brain-100.png";
 
 const defaultOptions = {
@@ -21,8 +20,8 @@ function Logo() {
       options={{ max: 55 }}
       style={{ height: 150, width: 150 }}
     >
-      <div>
-        <img alt="logo" src={brain} />
+      <div className="flex justify-center items-center">
+        <img className="p-6" alt="logo" src={brain} />
       </div>
     </Tilt>
   );
