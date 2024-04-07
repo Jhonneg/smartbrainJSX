@@ -7,4 +7,5 @@
 body {
   background: linear-gradient(220.55deg, #FFBB89 0%, #7B6AE0 100%);
   font-family: "Roboto", sans-serif;
+  height: 100vh;
 }

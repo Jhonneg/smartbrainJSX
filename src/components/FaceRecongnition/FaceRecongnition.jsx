@@ -1,5 +1,5 @@
 function FaceRecongnition() {
-  return <div>FaceRecongnition</div>;
+  return <div></div>;
 }
 
 export default FaceRecongnition;
