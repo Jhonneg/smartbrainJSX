@@ -8,6 +8,10 @@ import "./App";
 import { useState } from "react";
 
 console.log("https://samples.clarifai.com/metro-north.jpg");
+console.log(
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Richard_Stallman_-_F%C3%AAte_de_l%27Humanit%C3%A9_2014_-_010.jpg/800px-Richard_Stallman_-_F%C3%AAte_de_l%27Humanit%C3%A9_2014_-_010.jpg"
+);
+
 const setupClarifai = (imageUrl) => {
   const PAT = "cc27ad5214ca4515ac096bad0cb4a528";
   const USER_ID = "joneewars";
@@ -66,23 +70,21 @@ class App extends Component {
     const width = Number(image.width);
     const height = Number(image.height);
     console.log(width, height);
+    return {
+      leftCol: clarifaiFace.left_col * width,
+      topRow: clarifaiFace.top_row * height,
+      rightCol: width - clarifaiFace.right_col * width,
+      bottomRow: height - clarifaiFace.bottom_row * height,
+    };
   };
 
-  loadUser = (data) => {
-    this.setState({
-      user: {
-        id: data.id,
-        name: data.name,
-        email: data.email,
-        entries: data.entries,
-        joined: data.joined,
-      },
-    });
+  displayFaceBox = (box) => {
+    console.log(box);
+    this.setState({ box: box });
   };
 
   onInputChange = (event) => {
     this.setState({ input: event.target.value });
-    console.log(event.target.value);
   };
 
   onSubmit = () => {
@@ -92,36 +94,35 @@ class App extends Component {
       setupClarifai(this.state.input)
     )
       .then((response) => response.json(response))
-      .then((result) => this.calculateFaceLocation(result))
+      .then((response) =>
+        this.displayFaceBox(this.calculateFaceLocation(response))
+      )
       .catch((error) => console.log("error", error))
-      .then((response) => {
-        console.log("hi", response);
-        if (response) {
-          fetch("http://localhost:3000/image", {
-            method: "put",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              id: this.state.user.id,
-            }),
-          })
-            .then((response) => response.json())
-            .then((count) => {
-              this.setState(Object.assign(this.state.user, { entries: count }));
-            });
-        }
-      });
+      // .then((response) => {
+      //   console.log("hi", response);
+      //   if (response) {
+      //     fetch("http://localhost:3000/image", {
+      //       method: "put",
+      //       headers: { "Content-Type": "application/json" },
+      //       body: JSON.stringify({
+      //         id: this.state.user.id,
+      //       }),
+      //     })
+      //       .then((response) => response.json())
+      //       .then((count) => {
+      //         this.setState(Object.assign(this.state.user, { entries: count }));
+      //       });
+      //   }
+      // });
   };
   render() {
     const { isSignedIn, imageUrl, route, box } = this.state;
     return (
       <div className="App">
-        <Navigation
-          isSignedIn={isSignedIn}
-          onRouteChange={this.onRouteChange}
-        />
+        <Navigation />
         <div>
           <Logo />
-          <Rank name={this.state.user.name} entries={this.state.user.entries} />
+          <Rank />
           <ImageLinkForm
             onInputChange={this.onInputChange}
             onSubmit={this.onSubmit}
