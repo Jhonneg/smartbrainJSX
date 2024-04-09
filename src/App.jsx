@@ -92,7 +92,7 @@ class App extends Component {
       setupClarifai(this.state.input)
     )
       .then((response) => response.json(response))
-      .then((result) => console.log(result))
+      .then((result) => this.calculateFaceLocation(result))
       .catch((error) => console.log("error", error))
       .then((response) => {
         console.log("hi", response);
