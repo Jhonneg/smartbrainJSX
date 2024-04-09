@@ -7,13 +7,13 @@ import Rank from "./components/Rank/Rank";
 import "./App";
 import { useState } from "react";
 
-// https://samples.clarifai.com/metro-north.jpg
-
+console.log("https://samples.clarifai.com/metro-north.jpg");
 const setupClarifai = (imageUrl) => {
   const PAT = "cc27ad5214ca4515ac096bad0cb4a528";
   const USER_ID = "joneewars";
   const APP_ID = "Face-detect";
   const MODEL_ID = "face-detection";
+  const IMAGE_URL = imageUrl;
 
   const raw = JSON.stringify({
     user_app_id: {
@@ -24,7 +24,7 @@ const setupClarifai = (imageUrl) => {
       {
         data: {
           image: {
-            url: imageUrl,
+            url: IMAGE_URL,
           },
         },
       },
@@ -59,6 +59,15 @@ class App extends Component {
     };
   }
 
+  calculateFaceLocation = (data) => {
+    const clarifaiFace =
+      data.outputs[0].data.regions[0].region_info.bounding_box;
+    const image = document.querySelector(".inputimage");
+    const width = Number(image.width);
+    const height = Number(image.height);
+    console.log(width, height);
+  };
+
   loadUser = (data) => {
     this.setState({
       user: {
@@ -77,15 +86,30 @@ class App extends Component {
   };
 
   onSubmit = () => {
-    console.log('click')
     this.setState({ imageUrl: this.state.input });
     fetch(
-      `https://api.clarifai.com/v2/models/${MODEL_ID}/outputs`,
-      setupClarifai(imageUrl)
+      "https://api.clarifai.com/v2/models/face-detection/outputs",
+      setupClarifai(this.state.input)
     )
-      .then((response) => response.json())
-      .then((result) => calculateFaceLocation(result))
-      .catch((error) => console.log("error", error));
+      .then((response) => response.json(response))
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error))
+      .then((response) => {
+        console.log("hi", response);
+        if (response) {
+          fetch("http://localhost:3000/image", {
+            method: "put",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              id: this.state.user.id,
+            }),
+          })
+            .then((response) => response.json())
+            .then((count) => {
+              this.setState(Object.assign(this.state.user, { entries: count }));
+            });
+        }
+      });
   };
   render() {
     const { isSignedIn, imageUrl, route, box } = this.state;
