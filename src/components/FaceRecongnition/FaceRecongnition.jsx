@@ -3,7 +3,7 @@ const FaceRecongnition = ({ imageUrl, box }) => {
   return (
     <div className="flex justify-center">
       <div className="absolute mt-4">
-        <img className="inputimage" src={imageUrl} height="500" width="auto" />
+        <img className="inputimage" src={imageUrl} height="500" width="500" />
         <div
           className="bounding-box"
           style={{
