@@ -84,6 +84,10 @@ class App extends Component {
     this.setState({ box: box });
   };
 
+  onRouteChange = () => {
+    this.setState({ route: "home" });
+  };
+
   onInputChange = (event) => {
     this.setState({ input: event.target.value });
   };
@@ -99,36 +103,25 @@ class App extends Component {
         this.displayFaceBox(this.calculateFaceLocation(response))
       )
       .catch((error) => console.log("error", error));
-    // .then((response) => {
-    //   console.log("hi", response);
-    //   if (response) {
-    //     fetch("http://localhost:3000/image", {
-    //       method: "put",
-    //       headers: { "Content-Type": "application/json" },
-    //       body: JSON.stringify({
-    //         id: this.state.user.id,
-    //       }),
-    //     })
-    //       .then((response) => response.json())
-    //       .then((count) => {
-    //         this.setState(Object.assign(this.state.user, { entries: count }));
-    //       });
-    //   }
-    // });
   };
   render() {
     const { isSignedIn, imageUrl, route, box } = this.state;
     return (
       <div className="App">
         <Navigation />
-        <Signin />
-        <Logo />
-        <Rank />
-        <ImageLinkForm
-          onInputChange={this.onInputChange}
-          onSubmit={this.onSubmit}
-        />
-        <FaceRecongnition box={box} imageUrl={imageUrl} />
+        {this.state.route === "signin" ? (
+          <Signin onRouteChange={this.onRouteChange} />
+        ) : (
+          <div>
+            <Logo />
+            <Rank />
+            <ImageLinkForm
+              onInputChange={this.onInputChange}
+              onSubmit={this.onSubmit}
+            />
+            <FaceRecongnition box={box} imageUrl={imageUrl} />
+          </div>
+        )}
       </div>
     );
   }

@@ -1,12 +1,13 @@
 import "./Signin.css";
-export default function Signin() {
+export default function Signin({onRouteChange}) {
   return (
-    <form className="flex justify-center py-5">
-      <div className="box-grandient px-20 py-6 rounded-lg">
+    <form className="flex justify-center py-5 text-center">
+      <div className="box-grandient px-20 py-6 rounded-lg shadow-lg">
+        <h2 className="text-4xl mb-6 mt-4 text-gray-200">Sign in</h2>
         <div>
           <label
             htmlFor="email"
-            className="text-sm font-medium leading-6 text-gray-200"
+            className="text-center text-sm font-medium leading-6 text-gray-200"
           >
             Email address
           </label>
@@ -21,7 +22,7 @@ export default function Signin() {
             <div>
               <label
                 htmlFor="email"
-                className="mt-2 text-sm font-medium leading-6 text-gray-200"
+                className="mt-4 text-sm font-medium leading-6 text-gray-200"
               >
                 Password
               </label>
@@ -38,6 +39,7 @@ export default function Signin() {
 
             <div className="mt-6 gap-x-6">
               <button
+                onClick={onRouteChange}
                 type="submit"
                 className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >

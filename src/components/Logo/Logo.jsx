@@ -15,15 +15,17 @@ const defaultOptions = {
 
 function Logo() {
   return (
-    <Tilt
-      className="Tilt"
-      options={{ max: 55 }}
-      style={{ height: 150, width: 150 }}
-    >
-      <div className="flex justify-center items-center">
-        <img className="p-6" alt="logo" src={brain} />
-      </div>
-    </Tilt>
+    <div className="flex justify-center items-center">
+      <Tilt
+        className="Tilt"
+        options={{ max: 55 }}
+        style={{ height: 150, width: 150 }}
+      >
+        <div className="">
+          <img className="p-6" alt="logo" src={brain} />
+        </div>
+      </Tilt>
+    </div>
   );
 }
 
