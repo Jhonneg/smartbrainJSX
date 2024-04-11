@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-  background: linear-gradient(220.55deg, #ffbb89 0%, #7b6ae0 100%);
+  background: linear-gradient(220.55deg, #5d85a6 0%, #0e2c5e 100%);
   font-family: "Roboto", sans-serif;
-  height: 100vh;
+  height: 100%;
 }

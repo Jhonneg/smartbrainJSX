@@ -84,8 +84,8 @@ class App extends Component {
     this.setState({ box: box });
   };
 
-  onRouteChange = () => {
-    this.setState({ route: "home" });
+  onRouteChange = (route) => {
+    this.setState({ route: route });
   };
 
   onInputChange = (event) => {
@@ -108,7 +108,7 @@ class App extends Component {
     const { isSignedIn, imageUrl, route, box } = this.state;
     return (
       <div className="App">
-        <Navigation />
+        <Navigation onRouteChange={this.onRouteChange} />
         {this.state.route === "signin" ? (
           <Signin onRouteChange={this.onRouteChange} />
         ) : (

@@ -1,5 +1,4 @@
-import "./Signin.css";
-export default function Signin({onRouteChange}) {
+export default function Register() {
   return (
     <form className="flex justify-center py-5 text-center">
       <div className="box-grandient px-20 py-6 rounded-lg shadow-lg">
@@ -39,7 +38,7 @@ export default function Signin({onRouteChange}) {
 
             <div className="mt-6 gap-x-6">
               <button
-                onClick={() => onRouteChange('home')}
+                onClick={() => onRouteChange("home")}
                 type="submit"
                 className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
