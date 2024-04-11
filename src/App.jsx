@@ -121,15 +121,14 @@ class App extends Component {
     return (
       <div className="App">
         <Navigation />
-        <div>
-          <Logo />
-          <Rank />
-          <ImageLinkForm
-            onInputChange={this.onInputChange}
-            onSubmit={this.onSubmit}
-          />
-          <FaceRecongnition box={box} imageUrl={imageUrl} />
-        </div>
+        <Signin />
+        <Logo />
+        <Rank />
+        <ImageLinkForm
+          onInputChange={this.onInputChange}
+          onSubmit={this.onSubmit}
+        />
+        <FaceRecongnition box={box} imageUrl={imageUrl} />
       </div>
     );
   }
