@@ -4,12 +4,13 @@ import Logo from "./components/Logo/Logo";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import FaceRecongnition from "./components/FaceRecongnition/FaceRecongnition";
 import Rank from "./components/Rank/Rank";
+import Signin from "./components/Signin/Signin";
 import "./App";
 import { useState } from "react";
 
 console.log("https://samples.clarifai.com/metro-north.jpg");
 console.log(
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Richard_Stallman_-_F%C3%AAte_de_l%27Humanit%C3%A9_2014_-_010.jpg/800px-Richard_Stallman_-_F%C3%AAte_de_l%27Humanit%C3%A9_2014_-_010.jpg"
+  "https://static01.nyt.com/images/2022/03/28/arts/28OSCARS-BESTWORST-SLAP/merlin_204673236_71a2e305-4be8-48c0-b69b-9ee166856f98-superJumbo.jpg?quality=75&auto=webp"
 );
 
 const setupClarifai = (imageUrl) => {
@@ -97,23 +98,23 @@ class App extends Component {
       .then((response) =>
         this.displayFaceBox(this.calculateFaceLocation(response))
       )
-      .catch((error) => console.log("error", error))
-      // .then((response) => {
-      //   console.log("hi", response);
-      //   if (response) {
-      //     fetch("http://localhost:3000/image", {
-      //       method: "put",
-      //       headers: { "Content-Type": "application/json" },
-      //       body: JSON.stringify({
-      //         id: this.state.user.id,
-      //       }),
-      //     })
-      //       .then((response) => response.json())
-      //       .then((count) => {
-      //         this.setState(Object.assign(this.state.user, { entries: count }));
-      //       });
-      //   }
-      // });
+      .catch((error) => console.log("error", error));
+    // .then((response) => {
+    //   console.log("hi", response);
+    //   if (response) {
+    //     fetch("http://localhost:3000/image", {
+    //       method: "put",
+    //       headers: { "Content-Type": "application/json" },
+    //       body: JSON.stringify({
+    //         id: this.state.user.id,
+    //       }),
+    //     })
+    //       .then((response) => response.json())
+    //       .then((count) => {
+    //         this.setState(Object.assign(this.state.user, { entries: count }));
+    //       });
+    //   }
+    // });
   };
   render() {
     const { isSignedIn, imageUrl, route, box } = this.state;

@@ -1,4 +1,4 @@
-const Rank = () => {
+export default function Rank() {
   return (
     <div>
       <div className="text-3xl text-center text-white">
@@ -7,6 +7,4 @@ const Rank = () => {
       <div className="text-5xl text-center text-white">{"#1"}</div>
     </div>
   );
-};
-
-export default Rank;
+}
