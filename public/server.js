@@ -1,9 +1,12 @@
 import express from "express";
 import bcrypt from "bcrypt";
+import cors from "cors";
 
 const app = express();
 
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors());
 
 const database = {
   users: [
@@ -32,20 +35,20 @@ app.get("/", (req, res) => {
 });
 
 app.post("/signin", (req, res) => {
-  bcrypt.compare(
-    "apples",
-    "$2b$10$E0iNs8pnW8eDfMyeX5wMx.GhSkDqkgK.aN4f3OcIn7AMQL76reo0K",
-    function (err, res) {
-      console.log("first guess", res);
-    }
-  );
-  bcrypt.compare(
-    "cookies",
-    "$2b$10$E0iNs8pnW8eDfMyeX5wMx.GhSkDqkgK.aN4f3OcIn7AMQL76reo0K",
-    function (err, res) {
-      console.log("second guess", res);
-    }
-  );
+  // bcrypt.compare(
+  //   "apples",
+  //   "$2b$10$E0iNs8pnW8eDfMyeX5wMx.GhSkDqkgK.aN4f3OcIn7AMQL76reo0K",
+  //   function (err, res) {
+  //     console.log("first guess", res);
+  //   }
+  // );
+  // bcrypt.compare(
+  //   "cookies",
+  //   "$2b$10$E0iNs8pnW8eDfMyeX5wMx.GhSkDqkgK.aN4f3OcIn7AMQL76reo0K",
+  //   function (err, res) {
+  //     console.log("second guess", res);
+  //   }
+  // );
   if (
     req.body.email === database.users[0].email &&
     req.body.password === database.users[0].password
@@ -101,6 +104,9 @@ app.post("/image", (req, res) => {
     res.status(400).json("not found");
   }
 });
+app.listen(3000, () => {
+  console.log("app is running on port 3000");
+});
 
 // bcrypt.hash(myPlaintextPassword, saltRounds, function (err, hash) {
 //   // Store hash in your password DB.
@@ -112,6 +118,3 @@ app.post("/image", (req, res) => {
 //   // result == false
 // });
 
-app.listen(3000, () => {
-  console.log("app is running on port 3000");
-});
