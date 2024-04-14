@@ -8,7 +8,9 @@ import Signin from "./components/Signin/Signin";
 import Register from "./components/Register/Register";
 import "./App";
 
-// console.log("https://samples.clarifai.com/metro-north.jpg");
+console.log(
+  "https://media.wired.com/photos/5d815ffe46103c0009de8d56/master/w_2240,c_limit/science_stallman_473688628.jpg"
+);
 // console.log(
 //   "https://static01.nyt.com/images/2022/03/28/arts/28OSCARS-BESTWORST-SLAP/merlin_204673236_71a2e305-4be8-48c0-b69b-9ee166856f98-superJumbo.jpg?quality=75&auto=webp"
 // );
@@ -54,14 +56,28 @@ class App extends Component {
       box: {},
       route: "signin",
       isSignedIn: false,
+      user: {
+        id: "",
+        name: "",
+        email: "",
+        password: "",
+        entries: "0",
+        joined: "",
+      },
     };
   }
-  componentDidMount() {
-    fetch("http://localhost:3000/").then((response) =>
-      response.json().then(console.log)
-    );
-  }
 
+  loadUser = (data) => {
+    this.setState({
+      user: {
+        id: data.id,
+        name: data.name,
+        email: data.email,
+        entries: data.entries,
+        joined: data.joined,
+      },
+    });
+  };
   calculateFaceLocation = (data) => {
     const clarifaiFace =
       data.outputs[0].data.regions[0].region_info.bounding_box;
@@ -102,9 +118,22 @@ class App extends Component {
       setupClarifai(this.state.input)
     )
       .then((response) => response.json(response))
-      .then((response) =>
-        this.displayFaceBox(this.calculateFaceLocation(response))
-      )
+      .then((response) => {
+        if (response) {
+          fetch("http://localhost:3000/image", {
+            method: "put",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              id: this.state.user.id,
+            }),
+          })
+            .then((response) => response.json())
+            .then((count) => {
+              this.setState(Object.assign(this.state.user, { entries: count }));
+            });
+        }
+        this.displayFaceBox(this.calculateFaceLocation(response));
+      })
       .catch((error) => console.log("error", error));
   };
   render() {
@@ -118,7 +147,10 @@ class App extends Component {
         {route === "home" ? (
           <div>
             <Logo />
-            <Rank />
+            <Rank
+              name={this.state.user.name}
+              entries={this.state.user.entries}
+            />
             <ImageLinkForm
               onInputChange={this.onInputChange}
               onSubmit={this.onSubmit}
@@ -126,9 +158,12 @@ class App extends Component {
             <FaceRecongnition box={box} imageUrl={imageUrl} />
           </div>
         ) : route === "signin" ? (
-          <Signin onRouteChange={this.onRouteChange} />
+          <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
         ) : (
-          <Register onRouteChange={this.onRouteChange} />
+          <Register
+            loadUser={this.loadUser}
+            onRouteChange={this.onRouteChange}
+          />
         )}
       </div>
     );
