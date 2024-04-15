@@ -126,7 +126,8 @@ class App extends Component {
             method: "put",
             headers: {
               "Content-Type": "application/json",
-            'Access-Control-Allow-Origin: *'},
+              "Access-Control-Allow-Origin": "*"
+            },
             body: JSON.stringify({
               id: this.state.user.id,
             }),
