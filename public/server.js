@@ -1,4 +1,4 @@
-import express, { response } from "express";
+import express from "express";
 import bcrypt from "bcrypt";
 import cors from "cors";
 import knex from "knex";
@@ -8,6 +8,7 @@ import handleProfileGet from "./controllers/profiles.js";
 import handleImage from "./controllers/image.js";
 
 const port = process.env.PORT || 3000;
+
 const db = knex({
   client: "pg",
   connection: {
@@ -18,9 +19,7 @@ const db = knex({
   },
 });
 
-
 const app = express();
-
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -45,4 +44,3 @@ app.put("/image", (req, res) => {
 app.listen(port, () => {
   console.log(`app is running on port ${port}`);
 });
-
