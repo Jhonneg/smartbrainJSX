@@ -122,11 +122,11 @@ class App extends Component {
       .then((response) => response.json(response))
       .then((response) => {
         if (response) {
-          fetch("https://smartbrainjsx-1.onrender.com/image", {
+          fetch("https://smartbrainjsxback.onrender.com/image", {
             method: "put",
             headers: {
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*"
+              "Access-Control-Allow-Origin": "*",
             },
             body: JSON.stringify({
               id: this.state.user.id,
