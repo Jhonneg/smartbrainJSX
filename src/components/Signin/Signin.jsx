@@ -38,7 +38,7 @@ class Signin extends React.Component {
     const { onRouteChange } = this.props;
     return (
       <form className="flex justify-center py-5 text-center">
-        <div className="box-grandient px-20 py-6 rounded-lg shadow-lg">
+        <div className="box-grandient px-20 py-6 rounded-lg shadow-2xl border-solid border-2 border-sky-100">
           <h2 className="text-4xl mb-6 mt-4 text-gray-200">Sign in</h2>
           <div>
             <label
