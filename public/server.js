@@ -10,16 +10,16 @@ import { createClient } from "@supabase/supabase-js";
 
 const port = process.env.PORT || 3000;
 
-
-
-
 const db = knex({
   client: "pg",
   connection: {
-    host: "127.0.0.1",
-    user: "postgres",
-    password: "41277714",
-    database: "smart-brain",
+    connectionString: process.env.DATABASE_URL,
+    ssl : { rejectUnauthorized : false},
+    host: process.env.DATABASE_URL,
+    port : 5432,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PW,
+    database: process.env.DATABASE_DB,
   },
 });
 const app = express();
