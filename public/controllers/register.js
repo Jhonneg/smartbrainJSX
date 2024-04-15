@@ -1,6 +1,4 @@
-
-
-const handleRegister = (req, res, db, bcrypt)) => {
+const handleRegister = (req, res, db, bcrypt) => {
   const { email, name, password } = req.body;
   const saltRounds = 10;
   const hash = bcrypt.hashSync(password, saltRounds);
@@ -29,6 +27,4 @@ const handleRegister = (req, res, db, bcrypt)) => {
   }).catch((err) => res.status(400).json("unable to register"));
 };
 
-module.exports = {
-  handleRegister: handleRegister
-}
+export default handleRegister;
