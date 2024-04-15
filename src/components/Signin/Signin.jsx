@@ -20,7 +20,10 @@ class Signin extends React.Component {
     e.preventDefault();
     fetch("https://smartbrainjsx-1.onrender.com/signin", {
       method: "post",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
       body: JSON.stringify({
         email: this.state.signInEmail,
         password: this.state.signInPassword,
