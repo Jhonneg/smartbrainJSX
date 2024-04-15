@@ -18,7 +18,7 @@ class Signin extends React.Component {
 
   onSubmitSignIn = (e) => {
     e.preventDefault();
-    fetch("https://smartbrainjsx-1.onrender.com//signin", {
+    fetch("https://smartbrainjsx-1.onrender.com/signin", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

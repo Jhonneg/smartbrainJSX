@@ -124,7 +124,9 @@ class App extends Component {
         if (response) {
           fetch("https://smartbrainjsx-1.onrender.com/image", {
             method: "put",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+            'Access-Control-Allow-Origin: *'},
             body: JSON.stringify({
               id: this.state.user.id,
             }),
