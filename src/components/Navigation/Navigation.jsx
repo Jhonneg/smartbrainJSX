@@ -3,7 +3,7 @@ export default function Navigation({ onRouteChange, isSignedIn }) {
     return (
       <nav className="flex justify-end">
         <p
-          onClick={() => onRouteChange("signout")}
+          onClick={() => onRouteChange("signin")}
           className="p-4 cursor-pointer text-gray-200 no-underline"
         >
           Sign Out{" "}

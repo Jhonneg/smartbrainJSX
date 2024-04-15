@@ -2,6 +2,7 @@ import express, { response } from "express";
 import bcrypt from "bcrypt";
 import cors from "cors";
 import knex from "knex";
+import Register from "../src/components/Register/Register";
 
 const db = knex({
   client: "pg",
@@ -73,32 +74,7 @@ app.post("/signin", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-  const { email, name, password } = req.body;
-  const saltRounds = 10;
-  const hash = bcrypt.hashSync(password, saltRounds);
-  db.transaction((trx) => {
-    trx
-      .insert({
-        hash: hash,
-        email: email,
-      })
-      .into("login")
-      .returning("email")
-      .then((loginEmail) => {
-        return trx("users")
-          .returning("*")
-          .insert({
-            email: loginEmail[0].email,
-            name: name,
-            joined: new Date(),
-          })
-          .then((user) => {
-            res.json(user[0]);
-          });
-      })
-      .then(trx.commit)
-      .catch(trx.rollback);
-  }).catch((err) => res.status(400).json("unable to register"));
+  register.handleRegister(req, res, db, bcrypt);
 });
 
 app.get("/profile/:id", (req, res) => {
@@ -131,12 +107,6 @@ app.listen(3000, () => {
   console.log("app is running on port 3000");
 });
 
-// bcrypt.hash(myPlaintextPassword, saltRounds, function (err, hash) {
-//   // Store hash in your password DB.
-// });
-// bcrypt.compare(myPlaintextPassword, hash, function (err, result) {
-//   // result == true
-// });
-// bcrypt.compare(someOtherPlaintextPassword, hash, function (err, result) {
-//   // result == false
-// });
+module.exports = {
+  handleRegister: handleRegister,
+};

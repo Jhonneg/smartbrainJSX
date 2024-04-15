@@ -1,9 +1,9 @@
 import "./FaceRecongnition.css";
-const FaceRecongnition = ({ imageUrl, box }) => {
+export default function FaceRecongnition({ imageUrl, box }) {
   return (
     <div className="flex justify-center mb-10">
       <div className="absolute mt-4">
-        <img width="500" height="500" className="inputimage" src={imageUrl} />
+        <img width={500} height={500} className="inputimage" src={imageUrl} />
         <div
           className="bounding-box"
           style={{
@@ -16,6 +16,4 @@ const FaceRecongnition = ({ imageUrl, box }) => {
       </div>
     </div>
   );
-};
-
-export default FaceRecongnition;
+}
