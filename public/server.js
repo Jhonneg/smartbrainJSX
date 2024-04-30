@@ -6,7 +6,7 @@ import handleRegister from "./controllers/register.js";
 import handleSignin from "./controllers/signin.js";
 import handleProfileGet from "./controllers/profiles.js";
 import handleImage from "./controllers/image.js";
-import { createClient } from "@supabase/supabase-js";
+// import { createClient } from "@supabase/supabase-js";
 
 const port = process.env.PORT || 3000;
 
