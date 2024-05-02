@@ -2,6 +2,7 @@ import express from "express";
 import bcrypt from "bcrypt";
 import cors from "cors";
 import knex from "knex";
+import helmet from "helmet";
 import handleRegister from "./controllers/register.js";
 import handleSignin from "./controllers/signin.js";
 import handleProfileGet from "./controllers/profiles.js";
@@ -14,9 +15,9 @@ const db = knex({
   client: "pg",
   connection: {
     connectionString: process.env.DATABASE_URL,
-    ssl : { rejectUnauthorized : false},
+    ssl: { rejectUnauthorized: false },
     host: process.env.DATABASE_URL,
-    port : 5432,
+    port: 5432,
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PW,
     database: process.env.DATABASE_DB,
@@ -27,6 +28,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
+app.use(helmet());
 
 app.post("/signin", (req, res) => {
   handleSignin(req, res, db, bcrypt);
