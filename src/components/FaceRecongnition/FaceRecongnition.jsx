@@ -7,6 +7,7 @@ export default function FaceRecongnition({ imageUrl, boxes }) {
         {boxes.map((box) => {
           return (
             <div
+              key={box.topRow}
               className="bounding-box"
               style={{
                 top: box.topRow,
