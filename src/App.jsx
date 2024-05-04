@@ -17,7 +17,7 @@ console.log(
 
 const MODEL_ID = "face-detection";
 const setupClarifai = (imageUrl) => {
-  const PAT = "e671943df0e24472bf3811cd6c4d01db";
+  const PAT = process.env.USER_PAT;
   const USER_ID = "joneewars";
   const APP_ID = "Face-detect";
   const IMAGE_URL = imageUrl;
@@ -41,7 +41,7 @@ const setupClarifai = (imageUrl) => {
     method: "POST",
     headers: {
       Accept: "application/json",
-      Authorization: "Key " + PAT,
+      Authorization: "Key " + process.env.USER_PAT,
     },
     body: raw,
   };
