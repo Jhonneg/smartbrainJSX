@@ -18,7 +18,7 @@ console.log(
 
 const MODEL_ID = "face-detection";
 const setupClarifai = (imageUrl) => {
-  const PAT = process.env.USER_PAT;
+  const PAT = "94872f56d3ef44c0b6b949f51ace4e88";
   const USER_ID = "joneewars";
   const APP_ID = "Face-detect";
   const IMAGE_URL = imageUrl;
