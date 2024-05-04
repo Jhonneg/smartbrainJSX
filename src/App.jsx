@@ -123,7 +123,7 @@ class App extends Component {
       .then((response) => response.json(response))
       .then((response) => {
         if (response) {
-          fetch("http://localhost:3000/image", {
+          fetch("https://smartbrainjsxback.onrender.com/image", {
             method: "put",
             headers: {
               "Content-Type": "application/json",
