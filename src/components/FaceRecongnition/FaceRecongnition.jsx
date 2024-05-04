@@ -1,18 +1,22 @@
 import "./FaceRecongnition.css";
-export default function FaceRecongnition({ imageUrl, box }) {
+export default function FaceRecongnition({ imageUrl, boxes }) {
   return (
     <div className="flex justify-center mb-10">
       <div className="absolute mt-4">
         <img width={500} height={500} className="inputimage" src={imageUrl} />
-        <div
-          className="bounding-box"
-          style={{
-            top: box.topRow,
-            right: box.rightCol,
-            bottom: box.bottomRow,
-            left: box.leftCol,
-          }}
-        ></div>
+        {boxes.map((box) => {
+          return (
+            <div
+              className="bounding-box"
+              style={{
+                top: box.topRow,
+                right: box.rightCol,
+                bottom: box.bottomRow,
+                left: box.leftCol,
+              }}
+            ></div>
+          );
+        })}
       </div>
     </div>
   );
