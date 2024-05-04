@@ -18,7 +18,7 @@ console.log(
 
 const MODEL_ID = "face-detection";
 const setupClarifai = (imageUrl) => {
-  const PAT = import.meta.env.VITE_USER_PAT;
+  const PAT = process.env.USER_PAT;
   const USER_ID = "joneewars";
   const APP_ID = "Face-detect";
   const IMAGE_URL = imageUrl;
@@ -48,6 +48,7 @@ const setupClarifai = (imageUrl) => {
   };
 };
 
+// console.log(process.env.USER_PAT);
 const initialState = {
   input: "",
   imageUrl: "",
