@@ -6,7 +6,7 @@ import FaceRecongnition from "./components/FaceRecongnition/FaceRecongnition";
 import Rank from "./components/Rank/Rank";
 import Signin from "./components/Signin/Signin";
 import Register from "./components/Register/Register";
-import "dotenv/config";
+// import "dotenv/config";
 import "./App";
 
 console.log(
@@ -15,11 +15,10 @@ console.log(
 // console.log(
 //   "https://static01.nyt.com/images/2022/03/28/arts/28OSCARS-BESTWORST-SLAP/merlin_204673236_71a2e305-4be8-48c0-b69b-9ee166856f98-superJumbo.jpg?quality=75&auto=webp"
 // );
-console.log(process.env.USER_PAT);
 
 const MODEL_ID = "face-detection";
 const setupClarifai = (imageUrl) => {
-  const PAT = process.env.USER_PAT;
+  const PAT = import.meta.env.USER_PAT;
   const USER_ID = "joneewars";
   const APP_ID = "Face-detect";
   const IMAGE_URL = imageUrl;
