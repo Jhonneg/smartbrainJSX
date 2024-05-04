@@ -18,7 +18,7 @@ console.log(
 
 const MODEL_ID = "face-detection";
 const setupClarifai = (imageUrl) => {
-  const PAT = import.meta.env.USER_PAT;
+  const PAT = import.meta.env.VITE_USER_PAT;
   const USER_ID = "joneewars";
   const APP_ID = "Face-detect";
   const IMAGE_URL = imageUrl;
@@ -123,7 +123,7 @@ class App extends Component {
       .then((response) => response.json(response))
       .then((response) => {
         if (response) {
-          fetch("https://smartbrainjsxback.onrender.com/image", {
+          fetch("http://localhost:3000/image", {
             method: "put",
             headers: {
               "Content-Type": "application/json",
