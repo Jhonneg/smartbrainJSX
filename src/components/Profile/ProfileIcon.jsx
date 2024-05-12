@@ -1,5 +1,4 @@
 export default function ProfileIcon(props) {
-  
   return (
     <div>
       <div className="dropdown dropdown-left mr-4">
@@ -9,7 +8,7 @@ export default function ProfileIcon(props) {
           </div>
           <ul
             tabIndex={0}
-            className="bg-neutral dropdown-content z-[1] menu p-2 shadow-md bg-base-100 rounded-box w-52"
+            className="bg-neutral dropdown-content z-[1] menu p-2 shadow-md rounded-box w-52"
           >
             <li>
               <a onClick={props.toggleModal}>View Profile</a>
