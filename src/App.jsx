@@ -6,6 +6,7 @@ import FaceRecongnition from "./components/FaceRecongnition/FaceRecongnition";
 import Rank from "./components/Rank/Rank";
 import Signin from "./components/Signin/Signin";
 import Register from "./components/Register/Register";
+import Modal from "./components/Modal/Modal";
 // import "dotenv/config";
 
 console.log(
@@ -47,13 +48,12 @@ const setupClarifai = (imageUrl) => {
   };
 };
 
-// console.log(process.env.USER_PAT);
 const initialState = {
   input: "",
   imageUrl: "",
   boxes: [],
-  route: "home",
-  isSignedIn: true,
+  route: "signin",
+  isSignedIn: false,
   user: {
     id: "",
     name: "",
@@ -104,7 +104,7 @@ class App extends Component {
 
   onRouteChange = (route) => {
     if (route === "signin") {
-      this.setState(initialState);
+      return this.setState(initialState);
     } else if (route === "home") {
       this.setState({ isSignedIn: true });
     }
