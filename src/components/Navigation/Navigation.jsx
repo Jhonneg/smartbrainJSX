@@ -1,10 +1,10 @@
 import ProfileIcon from "../Profile/ProfileIcon";
 
-export default function Navigation({ onRouteChange, isSignedIn }) {
+export default function Navigation({ onRouteChange, isSignedIn, toggleModal }) {
   if (isSignedIn) {
     return (
       <nav className="flex justify-end mt-4">
-        <ProfileIcon onRouteChange={onRouteChange} />
+        <ProfileIcon onRouteChange={onRouteChange} toggleModal={toggleModal} />
       </nav>
     );
   } else {

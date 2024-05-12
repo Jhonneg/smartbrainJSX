@@ -45,69 +45,70 @@ class Register extends React.Component {
   render() {
     return (
       <form className="flex justify-center py-5 text-center">
-        <div className="box-grandient px-20 py-6 rounded-lg shadow-lg shadow-2xl border-solid border-2 border-sky-100">
+        <div className="bg-neutral px-20 py-6 rounded-lg shadow-lg shadow-2xl border-solid border-2 border-sky-100">
           <h2 className="text-4xl mb-6 mt-4 text-gray-200">Register</h2>
           <div>
-            <label
-              htmlFor="email"
-              className="mt-4 text-sm font-medium leading-6 text-gray-200"
-            >
-              Name
-            </label>
-            <div className="mt-2">
+            <label className="input input-bordered flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                className="w-4 h-4 opacity-70"
+              >
+                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
+              </svg>
               <input
                 onChange={this.onNameChange}
-                id="name"
-                name="name"
                 type="text"
-                autoComplete="text"
-                className="w-11/12 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="grow"
+                placeholder="Username"
               />
-            </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="text-center text-sm font-medium leading-6 text-gray-200"
+            </label>
+            <label className="input input-bordered flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                className="w-4 h-4 opacity-70"
               >
-                Email address
-              </label>
-              <div className="mt-2">
-                <input
-                  onChange={this.onEmailChange}
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  className="w-11/12 rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
+                <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
+              </svg>
+              <input
+                onChange={this.onEmailChange}
+                type="text"
+                className="grow"
+                placeholder="Email"
+              />
+            </label>
+            <label className="input input-bordered flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                className="w-4 h-4 opacity-70"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
+                  clipRule="evenodd"
                 />
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="mt-4 text-sm font-medium leading-6 text-gray-200"
-                  >
-                    Password
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      onChange={this.onPasswordChange}
-                      id="password"
-                      name="password"
-                      type="password"
-                      autoComplete="password"
-                      className="w-11/12 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="mt-6 gap-x-6">
-                <button
-                  onClick={this.onSubmitSignIn}
-                  type="submit"
-                  className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
-                  Register
-                </button>
-              </div>
+              </svg>
+              <input
+                onChange={this.onPasswordChange}
+                type="password"
+                className="grow"
+                value="password"
+              />
+            </label>
+            <div className="mt-6 gap-x-6">
+              <button
+                onClick={this.onSubmitSignIn}
+                type="submit"
+                className="btn"
+              >
+                Register
+              </button>
             </div>
           </div>
         </div>

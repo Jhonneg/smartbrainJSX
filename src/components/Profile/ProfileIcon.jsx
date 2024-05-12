@@ -9,10 +9,10 @@ export default function ProfileIcon(props) {
           </div>
           <ul
             tabIndex={0}
-            className="bg-gradient-to-r from-[#5d85a6] dropdown-content z-[1] menu p-2 shadow-md bg-base-100 rounded-box w-52"
+            className="bg-neutral dropdown-content z-[1] menu p-2 shadow-md bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>View Profile</a>
+              <a onClick={props.toggleModal}>View Profile</a>
             </li>
             <li>
               <a onClick={() => props.onRouteChange("signin")}>Sign out</a>
