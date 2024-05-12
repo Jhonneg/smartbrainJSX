@@ -59,6 +59,8 @@ const initialState = {
     password: "",
     entries: "0",
     joined: "",
+    pet: "",
+    age: "",
   },
 };
 
@@ -66,6 +68,27 @@ class App extends Component {
   constructor() {
     super();
     this.state = initialState;
+  }
+
+  componentDidMount() {
+    const token = window.sessionStorage.getItem("token");
+    if (token) {
+      fetch("http://localhost:3000/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data && data.id) {
+            console.log(data);
+            console.log("success");
+          }
+        })
+        .catch(console.log);
+    }
   }
 
   loadUser = (data) => {
@@ -147,7 +170,8 @@ class App extends Component {
       .catch((error) => console.log("error", error));
   };
   render() {
-    const { isSignedIn, imageUrl, route, boxes, isProfileOpen } = this.state;
+    const { isSignedIn, imageUrl, route, boxes, isProfileOpen, user } =
+      this.state;
     return (
       <div className="App">
         <Navigation
@@ -160,6 +184,8 @@ class App extends Component {
             <Profile
               isProfileOpen={isProfileOpen}
               toggleModal={this.toggleModal}
+              user={user}
+              loadUser={this.loadUser}
             />
           </Modal>
         )}
