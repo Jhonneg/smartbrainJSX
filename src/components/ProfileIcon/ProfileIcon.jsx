@@ -1,11 +1,7 @@
-import { useState } from "react";
-
 export default function ProfileIcon(props) {
-  const [dropdown, setDropdown] = useState(false);
-
   return (
     <div>
-      <div className="dropdown dropdown-left">
+      <div className="dropdown dropdown-left mr-4">
         <div tabIndex={0} role="button" className="avatar placeholder">
           <div className="bg-neutral text-neutral-content rounded-full w-14">
             <span className="text-xl">AI</span>
@@ -18,7 +14,7 @@ export default function ProfileIcon(props) {
               <a>View Profile</a>
             </li>
             <li>
-              <a>Signout</a>
+              <a onClick={() => props.onRouteChange("signin")}>Sign out</a>
             </li>
           </ul>
         </div>
