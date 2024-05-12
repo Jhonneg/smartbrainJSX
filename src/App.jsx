@@ -7,6 +7,7 @@ import Rank from "./components/Rank/Rank";
 import Signin from "./components/Signin/Signin";
 import Register from "./components/Register/Register";
 import Modal from "./components/Modal/Modal";
+import Profile from "./components/Profile/Profile";
 // import "dotenv/config";
 
 console.log(
@@ -54,6 +55,7 @@ const initialState = {
   boxes: [],
   route: "signin",
   isSignedIn: false,
+  isProfileOpen: false,
   user: {
     id: "",
     name: "",
@@ -110,7 +112,12 @@ class App extends Component {
     }
     this.setState({ route: route });
   };
-
+  toggleModal = () => {
+    this.setState((prevState) => ({
+      ...prevState,
+      isProfileOpen: !prevState.isProfileOpen,
+    }));
+  };
   onInputChange = (event) => {
     this.setState({ input: event.target.value });
   };
@@ -144,13 +151,22 @@ class App extends Component {
       .catch((error) => console.log("error", error));
   };
   render() {
-    const { isSignedIn, imageUrl, route, boxes } = this.state;
+    const { isSignedIn, imageUrl, route, boxes, isProfileOpen } = this.state;
     return (
       <div className="App">
         <Navigation
           isSignedIn={isSignedIn}
           onRouteChange={this.onRouteChange}
+          toggleModal={this.toggleModal}
         />
+        {isProfileOpen && (
+          <Modal>
+            <Profile
+              isProfileOpen={isProfileOpen}
+              toggleModal={this.toggleModal}
+            />
+          </Modal>
+        )}
         {route === "home" ? (
           <div>
             <Logo />

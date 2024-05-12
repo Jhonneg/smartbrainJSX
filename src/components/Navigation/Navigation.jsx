@@ -1,4 +1,4 @@
-import ProfileIcon from "../ProfileIcon/ProfileIcon";
+import ProfileIcon from "../Profile/ProfileIcon";
 
 export default function Navigation({ onRouteChange, isSignedIn }) {
   if (isSignedIn) {
