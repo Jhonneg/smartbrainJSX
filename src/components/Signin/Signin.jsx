@@ -1,8 +1,6 @@
 import React from "react";
 import "./Signin.css";
 
-// const port = process.env.PORT || 3000;
-
 class Signin extends React.Component {
   constructor(props) {
     super();

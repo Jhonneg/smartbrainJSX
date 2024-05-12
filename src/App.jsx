@@ -7,7 +7,6 @@ import Rank from "./components/Rank/Rank";
 import Signin from "./components/Signin/Signin";
 import Register from "./components/Register/Register";
 // import "dotenv/config";
-import "./App";
 
 console.log(
   "https://media.wired.com/photos/5d815ffe46103c0009de8d56/master/w_2240,c_limit/science_stallman_473688628.jpg"
@@ -53,8 +52,8 @@ const initialState = {
   input: "",
   imageUrl: "",
   boxes: [],
-  route: "signin",
-  isSignedIn: false,
+  route: "home",
+  isSignedIn: true,
   user: {
     id: "",
     name: "",
