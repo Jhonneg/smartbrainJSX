@@ -49,7 +49,7 @@ const initialState = {
   input: "",
   imageUrl: "",
   boxes: [],
-  route: "signin",
+  route: "home",
   isSignedIn: false,
   isProfileOpen: false,
   user: {
