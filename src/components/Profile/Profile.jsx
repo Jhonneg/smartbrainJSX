@@ -25,11 +25,14 @@ export default class Profile extends Component {
     }
   };
   onProfileUpdate = (data) => {
-    fetch(`http://localhost:3000/profile/${this.props.user.id}`, {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ formInput: data }),
-    })
+    fetch(
+      `https://smartbrainjsxback.onrender.com/profile/${this.props.user.id}`,
+      {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formInput: data }),
+      }
+    )
       .then((response) => {
         this.props.toggleModal();
         this.props.loadUser({ ...this.props.user, ...data });
