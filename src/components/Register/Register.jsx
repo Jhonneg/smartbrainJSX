@@ -98,7 +98,7 @@ class Register extends React.Component {
                 onChange={this.onPasswordChange}
                 type="password"
                 className="grow"
-                value="password"
+                placeholder="********"
               />
             </label>
             <div className="mt-6 gap-x-6">

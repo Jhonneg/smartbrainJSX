@@ -88,7 +88,7 @@ class Signin extends React.Component {
                       autoComplete="password"
                       type="password"
                       className="grow"
-                      placeholder="*******"
+                      placeholder="********"
                     />
                   </label>
                 </div>
