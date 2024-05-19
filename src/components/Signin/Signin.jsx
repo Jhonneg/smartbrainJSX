@@ -98,7 +98,7 @@ class Signin extends React.Component {
                 <button
                   onClick={this.onSubmitSignIn}
                   type="submit"
-                  className="btn w-20"
+                  className="btn w-20 btn-accent btn-outline"
                 >
                   Login
                 </button>
@@ -107,7 +107,7 @@ class Signin extends React.Component {
                 <p
                   onClick={() => onRouteChange("register")}
                   type="submit"
-                  className="btn w-20"
+                  className="btn w-20 btn-accent btn-outline"
                 >
                   Register
                 </p>

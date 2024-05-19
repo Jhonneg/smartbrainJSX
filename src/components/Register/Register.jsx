@@ -105,7 +105,7 @@ class Register extends React.Component {
               <button
                 onClick={this.onSubmitSignIn}
                 type="submit"
-                className="btn"
+                className="btn btn-accent btn-outline"
               >
                 Register
               </button>
