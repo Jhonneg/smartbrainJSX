@@ -9,7 +9,6 @@ export default defineConfig(({ command, mode }) => {
 
   return {
     plugins: [react()],
-    base: "/smartbrainjsx",
     // vite config
     define: {
       ...Object.keys(env).reduce((prev, key) => {
