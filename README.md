@@ -1,5 +1,5 @@
 # Smartbrain App
-Face recognition app Build with React, Node/Express and Postgres, daisyUI used for components and TailwindCSS for styling.
+Face recognition app Build with React with Vite, Node/Express and Postgres, daisyUI used for components and TailwindCSS for styling.
 
 This app allows the user to use clarify AI face recognition API to identify faces.
 
