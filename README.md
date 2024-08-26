@@ -9,3 +9,4 @@ This app allows the user to use clarify AI face recognition API to identify face
 
 <img src="https://github.com/Jhonneg/SmartbrainJSX/blob/main/assets/Screenshot%20from%202024-05-04%2008-01-59.png" width="800">
 
+[Screencast from 08-26-2024 05:19:09 AM.webm](https://github.com/user-attachments/assets/7bd3b2f7-c801-4c24-9d36-a0fc6e290271)
