@@ -55,7 +55,7 @@ my-next-app
 - The application will display the detected faces with bounding boxes.
 
 ## Tech stack
-[![Current tech stack](https://skillicons.dev/icons?i=react,tailwind,vite,bun)](https://skillicons.dev)
+[![Current tech stack](https://skillicons.dev/icons?i=nextjs,tailwind,vite,bun)](https://skillicons.dev)
 
 <img width="1418" height="913" alt="screenshot-2025-11-03_05-27-12" src="https://github.com/user-attachments/assets/1134fb63-537c-49b3-ab7d-5e09f05812f3" />
 
