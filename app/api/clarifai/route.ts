@@ -4,8 +4,8 @@ export async function POST(request) {
   const { imageUrl } = await request.json();
 
   const PAT = process.env.CLARIFAI_API_KEY;
-  const USER_ID = "joneewars";
-  const APP_ID = "Face-detect";
+  const USER_ID = "clarifai";
+  const APP_ID = "main";
   const MODEL_ID = "face-detection";
 
   const raw = JSON.stringify({

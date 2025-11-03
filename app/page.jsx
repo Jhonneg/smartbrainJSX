@@ -1,5 +1,9 @@
 "use client";
 
+console.log(
+  "https://media.wired.com/photos/5d815ffe46103c0009de8d56/master/w_2240,c_limit/science_stallman_473688628.jpg"
+);
+
 import { useState } from "react";
 import Logo from "./components/Logo/Logo";
 import ImageLinkForm from "./components/ImageLinkForm";
