@@ -1,4 +1,4 @@
-# My Next.js App
+# Face Recognition app
 
 This is a Next.js application that implements a face recognition feature using the Clarifai API. The application allows users to input an image URL, and it will display the detected faces in the image.
 
