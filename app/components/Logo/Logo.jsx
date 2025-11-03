@@ -1,15 +1,14 @@
 import brain from "./icons8-brain-100.png";
+import Image from "next/image";
 
 export default function Logo() {
   return (
     <div className="flex justify-center items-center flex-col">
-      <div>
-        <img className="p-6" alt="logo" src={brain} />
-      </div>
+      <Image className="p-6" alt="logo" src={brain} />
 
       <a href="https://github.com/Jhonneg">
         <p className="inline-block mx-1">Build by </p>
-        <img
+        <Image
           className="inline-block"
           width="32"
           height="32"
