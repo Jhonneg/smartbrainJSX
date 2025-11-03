@@ -1,9 +1,60 @@
-# Smartbrain App
-Face recognition app Build with React with Vite, daisyUI used for components and TailwindCSS for styling.
+# Face Recognition app
 
-This app allows the user to use clarify AI face recognition API to identify faces.
+This is a Next.js application that implements a face recognition feature using the Clarifai API. The application allows users to input an image URL, and it will display the detected faces in the image.
 
-# Tech stack
+## Project Structure
+
+```
+my-next-app
+├── app
+│   ├── globals.css         # Global CSS styles for the application
+│   ├── layout.jsx          # Layout component wrapping around page components
+│   └── page.jsx            # Main entry point for the application
+├── components
+│   ├── FaceRecongnition     # Component for displaying face recognition results
+│   │   └── FaceRecongnition.jsx
+│   ├── ImageLinkForm        # Component for inputting image URL
+│   │   └── ImageLinkForm.jsx
+│   └── Logo                 # Component for displaying the application logo
+│       └── Logo.jsx
+├── public                   # Directory for static assets
+├── .eslintrc.json           # ESLint configuration file
+├── .gitignore               # Git ignore file
+├── jsconfig.json            # JavaScript project configuration
+├── next.config.js           # Next.js configuration file
+├── package.json             # npm configuration file
+└── README.md                # Project documentation
+```
+
+## Setup Instructions
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd my-next-app
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser and navigate to:**
+   ```
+   http://localhost:3000
+   ```
+
+## Usage
+
+- Enter an image URL in the input field and click the submit button to analyze the image.
+- The application will display the detected faces with bounding boxes.
+
+## Tech stack
 [![Current tech stack](https://skillicons.dev/icons?i=react,tailwind,vite,bun)](https://skillicons.dev)
 
 

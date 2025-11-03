@@ -1,5 +1,4 @@
-
-function ImageLinkForm({ onInputChange, onSubmit }) {
+export default function ImageLinkForm({ onInputChange, onSubmit }) {
   return (
     <div>
       <p className="text-xl my-6 text-center">
@@ -12,7 +11,10 @@ function ImageLinkForm({ onInputChange, onSubmit }) {
             type="text"
             onChange={onInputChange}
           />
-          <button className="btn btn-accent rounded-none btn-outline" onClick={onSubmit}>
+          <button
+            className="btn btn-accent rounded-none btn-outline"
+            onClick={onSubmit}
+          >
             Detect
           </button>
         </div>
@@ -20,5 +22,3 @@ function ImageLinkForm({ onInputChange, onSubmit }) {
     </div>
   );
 }
-
-export default ImageLinkForm;
